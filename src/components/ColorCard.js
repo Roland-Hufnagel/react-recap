@@ -4,7 +4,7 @@ export default function ColorCard({ color }) {
   return (
     <>
       <section className="card">
-        <div className="info">
+        <div className="card--info">
           <h2>{color.role}</h2>
           <p>{color.value}</p>
         </div>

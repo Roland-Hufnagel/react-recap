@@ -1,0 +1,13 @@
+.theme {
+  max-width: 500px;
+  -border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+.theme--info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

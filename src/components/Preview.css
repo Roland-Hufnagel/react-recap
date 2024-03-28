@@ -1,0 +1,10 @@
+
+.preview {
+  display: flex;
+  justify-content: space-between;
+}
+.colorBox {
+  border-radius: 20%;
+  width: 22%;
+  aspect-ratio: 1;
+}
