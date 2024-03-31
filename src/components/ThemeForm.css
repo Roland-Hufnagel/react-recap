@@ -1,0 +1,13 @@
+.theme-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin: 0 2em;
+}
+.color-inputs {
+  display: flex;
+  justify-content: space-between;
+  & input{
+    width: 24%;
+  }
+}

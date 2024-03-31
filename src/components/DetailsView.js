@@ -4,9 +4,8 @@ export default function DetailsView({ theme }) {
   return (
     <div>
       {theme.colors.map((color) => (
-        <ColorCard color={color} />
+        <ColorCard key={color.role} color={color} />
       ))}
-
     </div>
   );
 }

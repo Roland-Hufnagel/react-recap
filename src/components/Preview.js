@@ -6,7 +6,7 @@ export default function Preview({ theme }) {
       {theme.colors.map((color) => (
         <div
           className="colorBox"
-          key={color.name}
+          key={color.role}
           style={{ backgroundColor: `${color.value}` }}
         ></div>
       ))}
