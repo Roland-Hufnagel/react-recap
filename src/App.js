@@ -22,13 +22,16 @@ function App() {
     ];
     setThemes([newTheme, ...themes]);
   }
+  function handleDeleteTheme(id) {
+    setThemes(themes.filter((theme) => theme.id !== id));
+  }
 
   return (
     <main>
       <h1>Theme Creator</h1>
       <ThemeForm handleAddTheme={handleAddTheme} />
       {themes.map((theme) => (
-        <Theme key={theme.id} theme={theme} />
+        <Theme key={theme.id} theme={theme} handleDeleteTheme={handleDeleteTheme} />
       ))}
     </main>
   );
