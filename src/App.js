@@ -5,7 +5,31 @@ import ThemeForm from "./components/ThemeForm";
 import { v4 as uuidv4 } from "uuid";
 import useLocalStorageState from "use-local-storage-state";
 //import uuid from "uuid";
-
+const blankTheme = {
+  name: "",
+  colors: [
+    {
+      role: "primary",
+      value: "#57886C",
+      name: "Viridian",
+    },
+    {
+      role: "secondary",
+      value: "#F8C7CC",
+      name: "Tea Rose",
+    },
+    {
+      role: "surface",
+      value: "#FDEDEE",
+      name: "Lavender Blush",
+    },
+    {
+      role: "surface-on",
+      value: "#0E0F19",
+      name: "Rich Black",
+    },
+  ],
+};
 function App() {
   const [themes, setThemes] = useLocalStorageState("themes", {
     defaultValue: initialThemes,
@@ -17,49 +41,78 @@ function App() {
     const data = await response.json();
     return data.name.value;
   }
-  async function handleAddTheme(theme) {
+  async function handleAddTheme(formData) {
     const newTheme = {};
     newTheme.id = uuidv4();
     //newTheme.id = uuid.v4();
-    newTheme.name = theme.name;
+    newTheme.name = formData.name;
     newTheme.colors = [
       {
         role: "primary",
-        value: theme.color1,
-        name: await getColorName(theme.color1),
+        value: formData.color1,
+        // name: await getColorName(theme.color1),
       },
       {
         role: "secondary",
-        value: theme.color2,
-        name: await getColorName(theme.color2),
+        value: formData.color2,
+        // name: await getColorName(theme.color2),
       },
       {
         role: "surface",
-        value: theme.color3,
-        name: await getColorName(theme.color3),
+        value: formData.color3,
+        // name: await getColorName(theme.color3),
       },
       {
         role: "surface-on",
-        value: theme.color4,
-        name: await getColorName(theme.color4),
+        value: formData.color4,
+        // name: await getColorName(theme.color4),
       },
     ];
-    newTheme.colors.forEach((color) => {});
     setThemes([newTheme, ...themes]);
   }
   function handleDeleteTheme(id) {
     setThemes(themes.filter((theme) => theme.id !== id));
   }
+  function handleEditTheme(data, id) {
+    const colors = [
+      {
+        role: "primary",
+        value: data.color1,
+        // name: await getColorName(theme.color1),
+      },
+      {
+        role: "secondary",
+        value: data.color2,
+        // name: await getColorName(theme.color2),
+      },
+      {
+        role: "surface",
+        value: data.color3,
+        // name: await getColorName(theme.color3),
+      },
+      {
+        role: "surface-on",
+        value: data.color4,
+        // name: await getColorName(theme.color4),
+      },
+    ];
+    setThemes(
+      themes.map((theme) =>
+        theme.id === id ? { ...theme, colors: colors, name: data.name } : theme
+      )
+    );
+  }
 
   return (
     <main>
       <h1>Theme Creator</h1>
-      <ThemeForm handleAddTheme={handleAddTheme} />
+      <ThemeForm onSubmit={handleAddTheme} theme={blankTheme} />
       {themes.map((theme) => (
         <Theme
           key={theme.id}
           theme={theme}
           handleDeleteTheme={handleDeleteTheme}
+          handleEditTheme={handleEditTheme}
         />
       ))}
     </main>

@@ -5,7 +5,7 @@ import DetailsView from "./DetailsView";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 
-export default function Theme({ theme, handleDeleteTheme }) {
+export default function Theme({ theme, handleDeleteTheme, handleEditTheme }) {
   const [detailsView, setDetailsView] = useState(false);
 
   function toggleDetailsView() {
@@ -20,7 +20,11 @@ export default function Theme({ theme, handleDeleteTheme }) {
         </button>
       </div>
       {detailsView ? (
-        <DetailsView theme={theme} handleDeleteTheme={handleDeleteTheme} />
+        <DetailsView
+          theme={theme}
+          handleDeleteTheme={handleDeleteTheme}
+          handleEditTheme={handleEditTheme}
+        />
       ) : (
         <Preview theme={theme} />
       )}
