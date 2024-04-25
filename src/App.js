@@ -74,25 +74,26 @@ function App() {
     setThemes(themes.filter((theme) => theme.id !== id));
   }
   function handleEditTheme(data, id) {
+    console.log("--->", data);
     const colors = [
       {
         role: "primary",
-        value: data.color1,
+        value: data.primary,
         // name: await getColorName(theme.color1),
       },
       {
         role: "secondary",
-        value: data.color2,
+        value: data.secondary,
         // name: await getColorName(theme.color2),
       },
       {
         role: "surface",
-        value: data.color3,
+        value: data.surface,
         // name: await getColorName(theme.color3),
       },
       {
         role: "surface-on",
-        value: data.color4,
+        value: data["surface-on"],
         // name: await getColorName(theme.color4),
       },
     ];

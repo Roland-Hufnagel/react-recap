@@ -1,4 +1,5 @@
 import "./ThemeForm.css";
+import ColorPicker from "./ColorPicker";
 
 export default function ThemeForm({ theme, onSubmit, isEditMode }) {
   // function handleSubmit(event) {
@@ -29,7 +30,10 @@ export default function ThemeForm({ theme, onSubmit, isEditMode }) {
         defaultValue={theme.name}
       />
       <div className="color-inputs">
-        <input
+        {theme.colors.map((color) => (
+          <ColorPicker key={color.role} color={color} />
+        ))}
+        {/* <input
           id="color1"
           name="color1"
           type="color"
@@ -56,7 +60,7 @@ export default function ThemeForm({ theme, onSubmit, isEditMode }) {
           type="color"
           defaultValue={theme.colors[3].value}
           aria-label="fourth color input"
-        />
+        /> */}
       </div>
       <button>{isEditMode ? "Update theme" : "Add theme"}</button>
     </form>

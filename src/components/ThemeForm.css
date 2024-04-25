@@ -7,7 +7,5 @@
 .color-inputs {
   display: flex;
   justify-content: space-between;
-  & input{
-    width: 24%;
-  }
+  flex-wrap: wrap;
 }
