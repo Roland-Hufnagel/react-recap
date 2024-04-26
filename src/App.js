@@ -49,22 +49,22 @@ function App() {
     newTheme.colors = [
       {
         role: "primary",
-        value: formData.color1,
+        value: formData.primary,
         // name: await getColorName(theme.color1),
       },
       {
         role: "secondary",
-        value: formData.color2,
+        value: formData.secondary,
         // name: await getColorName(theme.color2),
       },
       {
         role: "surface",
-        value: formData.color3,
+        value: formData.surface,
         // name: await getColorName(theme.color3),
       },
       {
         role: "surface-on",
-        value: formData.color4,
+        value: formData["surface-on"],
         // name: await getColorName(theme.color4),
       },
     ];
@@ -74,7 +74,6 @@ function App() {
     setThemes(themes.filter((theme) => theme.id !== id));
   }
   function handleEditTheme(data, id) {
-    console.log("--->", data);
     const colors = [
       {
         role: "primary",

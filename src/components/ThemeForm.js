@@ -33,34 +33,6 @@ export default function ThemeForm({ theme, onSubmit, isEditMode }) {
         {theme.colors.map((color) => (
           <ColorPicker key={color.role} color={color} />
         ))}
-        {/* <input
-          id="color1"
-          name="color1"
-          type="color"
-          defaultValue={theme.colors[0].value}
-          aria-label="first color input"
-        />
-        <input
-          id="color2"
-          name="color2"
-          type="color"
-          defaultValue={theme.colors[1].value}
-          aria-label="second color input"
-        />
-        <input
-          id="color3"
-          name="color3"
-          type="color"
-          defaultValue={theme.colors[2].value}
-          aria-label="third color input"
-        />
-        <input
-          id="color4"
-          name="color4"
-          type="color"
-          defaultValue={theme.colors[3].value}
-          aria-label="fourth color input"
-        /> */}
       </div>
       <button>{isEditMode ? "Update theme" : "Add theme"}</button>
     </form>
